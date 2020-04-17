@@ -135,6 +135,7 @@ export default function TaskList({
               >
                 <TextInput
                   value={description}
+                  onEnter={() => updateEditedTask()}
                   onChange={value => updateTaskDescription(value)}
                 />
               </div>
@@ -206,7 +207,7 @@ TaskList.defaultProp = {
 
 TaskList.propTypes = {
   list: propTypes.array,
-  displayAllView: propTyes.bool,
+  displayAllView: propTypes.bool,
   projects: propTypes.object,
   updateProjectsOrder: propTypes.func,
   projectName: propTypes.string,

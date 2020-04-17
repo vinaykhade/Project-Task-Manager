@@ -15,16 +15,18 @@ const InputTextField = withStyles({
 })(TextField);
 
 const TextInput = props => {
-  const { onChange, value, label } = props;
+  const { onChange, onEnter, value, label } = props;
   return (
     <InputTextField
       variant="outlined"
       color="secondary"
       value={value}
+      autoFocus
       label={label}
       InputLabelProps={{
         shrink: true,
       }}
+      onKeyDown={event => (event.keyCode === 13 ? onEnter(event) : null)}
       onChange={event => onChange(event.target.value)}
     />
   );
@@ -35,11 +37,13 @@ export default TextInput;
 TextInput.defaultProp = {
   value: new Date(),
   onChange: () => {},
+  onEnter: () => {},
   label: '',
 };
 
 TextInput.propTypes = {
   value: propTypes.object,
   onChange: propTypes.func,
+  onEnter: propTypes.func,
   label: propTypes.string,
 };

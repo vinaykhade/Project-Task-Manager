@@ -38,15 +38,17 @@ const styles = theme => ({
 });
 
 const Form = withStyles(styles)(props => {
-  const { classes, projectName, setProjectName } = props;
+  const { classes, projectName, setProjectName, handleAddNewProject } = props;
   return (
-    <form className={classes.formParentStyle} noValidate autoComplete="off">
+    <div className={classes.formParentStyle} noValidate autoComplete="off">
       <TextInput
+        className={classes.formParentStyle}
         label="Project Name"
         value={projectName}
+        onEnter={event => (projectName ? handleAddNewProject(event) : null)}
         onChange={value => setProjectName(value)}
       />
-    </form>
+    </div>
   );
 });
 
@@ -111,7 +113,11 @@ export default function AddProject({
         Add Project
       </DialogTitle>
       <DialogContent dividers>
-        <Form setProjectName={setProjectName} projectName={projectName} />
+        <Form
+          handleAddNewProject={handleAddNewProject}
+          setProjectName={setProjectName}
+          projectName={projectName}
+        />
       </DialogContent>
       <DialogActions>
         <CancelButton onClick={event => handleAddProjectModal(event)} />

@@ -64,7 +64,10 @@ export default function AddTask({ displayAllView, projectName, addNewTask }) {
               width: displayAllView ? '100%' : '80%',
             }}
           >
-            <TextInput onChange={value => handleTaskDescription(value)} />
+            <TextInput
+              onChange={value => handleTaskDescription(value)}
+              onEnter={() => (taskDescription ? addTaskToProject() : null)}
+            />
           </div>
           <div
             style={{

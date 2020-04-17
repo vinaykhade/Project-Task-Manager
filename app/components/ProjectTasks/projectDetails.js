@@ -52,7 +52,7 @@ ProjectTasks.defaultProp = {
 
 ProjectTasks.propTypes = {
   taskList: propTypes.array,
-  displayAllView: propTyes.bool,
+  displayAllView: propTypes.bool,
   updateProjectsOrder: propTypes.func,
   updateTask: propTypes.func,
   addNewTask: propTypes.func,
