@@ -6,15 +6,14 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
 import history from '../utils/history';
-
-import increment from './increment';
+import projects from './projects';
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
  */
 export default function createReducer() {
   const rootReducer = combineReducers({
     router: connectRouter(history),
-    increment,
+    projects,
   });
 
   return rootReducer;

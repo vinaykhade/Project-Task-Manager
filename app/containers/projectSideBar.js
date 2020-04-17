@@ -1,22 +1,21 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Increment from '../components/increment';
-
-import * as incrementActions from '../actions/increment';
+import ProjectSidebar from '../components/ProjectSideBar';
+import * as addProjectActions from '../actions/addProject';
 
 function mapStateToProperties(state) {
-  const { increment } = state;
+  const { projects } = state;
 
   return {
-    currentValue: increment,
+    projects,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      ...incrementActions,
+      ...addProjectActions,
     },
     dispatch,
   );
@@ -25,4 +24,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProperties,
   mapDispatchToProps,
-)(Increment);
+)(ProjectSidebar);

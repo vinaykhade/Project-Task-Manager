@@ -4,16 +4,11 @@
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import createSagaMiddleware from 'redux-saga';
-import thunkMiddleware from 'redux-thunk';
 
 import createReducer from './reducers';
-import rootSaga from './sagas';
 
 export default function configureStore(initialState = {}, history) {
   let composeEnhancers = compose;
-  const reduxSagaMonitorOptions = {};
-
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
   /* istanbul ignore next */
 
@@ -31,17 +26,9 @@ export default function configureStore(initialState = {}, history) {
     /* eslint-enable */
   }
 
-  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
-
   // Create the store with two middlewares
-  // 1. sagaMiddleware: Makes redux-sagas work
-  // 2. thunkMiddleware: Makes redux-thunk work
-  // 3. routerMiddleware: Syncs the location/URL path to the state
-  const middlewares = [
-    sagaMiddleware,
-    thunkMiddleware,
-    routerMiddleware(history),
-  ];
+  // 1. routerMiddleware: Syncs the location/URL path to the state
+  const middlewares = [routerMiddleware(history)];
 
   const enhancers = [applyMiddleware(...middlewares)];
 
@@ -58,8 +45,6 @@ export default function configureStore(initialState = {}, history) {
       store.replaceReducer(createReducer());
     });
   }
-
-  sagaMiddleware.run(rootSaga);
 
   return store;
 }
