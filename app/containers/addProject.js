@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import AddProject from '../components/addProject';
+import AddProject from '../components/AddProject';
 
 import * as addProjectActions from '../actions/addProject';
 
