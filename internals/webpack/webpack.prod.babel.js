@@ -7,10 +7,10 @@ import paths from './paths';
 module.exports = {
   mode: 'production',
   output: {
-    filename: `[name].[chunkhash].js`,
+    filename: `[name].js`,
     path: paths.outputPath,
     publicPath: '/',
-    chunkFilename: '[name].[chunkhash].chunk.js',
+    // chunkFilename: '[name].[chunkhash].chunk.js',
   },
   optimization: {
     minimize: true,
@@ -36,23 +36,23 @@ module.exports = {
     nodeEnv: 'production',
     sideEffects: true,
     concatenateModules: true,
-    runtimeChunk: 'single',
-    splitChunks: {
-      chunks: 'all',
-      maxInitialRequests: 10,
-      minSize: 0,
-      cacheGroups: {
-        vendor: {
-          test: /node_modules/,
-          name(module) {
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-            )[1];
-            return `npm.${packageName.replace('@', '')}`;
-          },
-        },
-      },
-    },
+    // runtimeChunk: 'single',
+    // splitChunks: {
+    //   chunks: 'all',
+    //   maxInitialRequests: 10,
+    //   minSize: 0,
+    //   cacheGroups: {
+    //     vendor: {
+    //       test: /node_modules/,
+    //       name(module) {
+    //         const packageName = module.context.match(
+    //           /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+    //         )[1];
+    //         return `npm.${packageName.replace('@', '')}`;
+    //       },
+    //     },
+    //   },
+    // },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -71,12 +71,12 @@ module.exports = {
       },
       inject: true,
     }),
-    new CompressionPlugin({
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
+    // new CompressionPlugin({
+    //   algorithm: 'gzip',
+    //   test: /\.js$|\.css$|\.html$/,
+    //   threshold: 10240,
+    //   minRatio: 0.8,
+    // }),
   ],
   devtool: 'source-map',
 };
