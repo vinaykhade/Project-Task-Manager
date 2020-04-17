@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "author": "Vinay Khade",
+  "homepage": "http://vinaykhade.github.io/project-dashboard",
   "license": "ISC",
   "main": "app/app.js",
   "scripts": {
@@ -20,7 +21,9 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:staged": "lint-staged",
     "pretest": "npm run test:clean && npm run lint",
-    "prettify": "prettier --write app/**/*.js app/**/**/*.js"
+    "prettify": "prettier --write app/**/*.js app/**/**/*.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "lint-staged": {
     "*.js": [
@@ -68,6 +71,7 @@
     "eslint-plugin-react-hooks": "^2.0.1",
     "eslint-plugin-redux-saga": "^1.1.0",
     "file-loader": "^4.2.0",
+    "gh-pages": "^2.2.0",
     "history": "^4.9.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.4",
