@@ -4,7 +4,7 @@ import React from 'react';
 import ProjectSideBar from '../../containers/projectSideBar';
 import * as Styled from './styles';
 
-const DashboardWrapper = Component => {
+const DashboardWrapperComponent = Component => {
   class HOC extends React.Component {
     render() {
       return (
@@ -20,4 +20,4 @@ const DashboardWrapper = Component => {
   return HOC;
 };
 
-export default DashboardWrapper;
+export default DashboardWrapperComponent;

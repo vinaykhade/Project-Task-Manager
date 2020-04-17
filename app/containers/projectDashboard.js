@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Dashboard from '../components/dashboard';
+import Dashboard from '../components/ProjectDashboard';
 import * as addProjectActions from '../actions/addProject';
 
 function mapStateToProperties(state) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DashboardWrapper from '../Dashboard/dashboardWrapper';
+import DashboardWrapper from '../ProjectDashboard/dashboardWrapper';
 import ProjectDetails from './projectDetails';
 import AddButton from '../../customComponents/AddButton';
 import history from '../../utils/history';
