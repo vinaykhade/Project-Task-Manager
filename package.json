@@ -4,7 +4,6 @@
   "description": "",
   "keywords": [],
   "author": "Vinay Khade",
-  "homepage": "http://vinaykhade.github.io/project-dashboard",
   "license": "ISC",
   "main": "app/app.js",
   "scripts": {
